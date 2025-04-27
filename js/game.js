@@ -968,25 +968,25 @@ function playSound(type) {
     
     switch (type) {
         case 'player-shoot':
-            sound.src = '../assets/sounds/player-shoot.mp3';
+            sound.src = './assets/sounds/player-shoot.mp3';
             break;
         case 'enemy-shoot':
-            sound.src = '../assets/sounds/enemy-shoot.mp3';
+            sound.src = './assets/sounds/enemy-shoot.mp3';
             break;
         case 'player-hit':
-            sound.src = '../assets/sounds/player-hit.mp3';
+            sound.src = './assets/sounds/player-hit.mp3';
             break;
         case 'enemy-hit':
-            sound.src = '../assets/sounds/enemy-hit.mp3';
+            sound.src = './assets/sounds/enemy-hit.mp3';
             break;
         case 'game-over':
-            sound.src = '../assets/sounds/game-over.mp3';
+            sound.src = './assets/sounds/game-over.mp3';
             break;
         case 'game-win':
-            sound.src = '../assets/sounds/game-win.mp3';
+            sound.src = './assets/sounds/game-win.mp3';
             break;
         case 'speed-up':
-            sound.src = '../assets/sounds/speed-up.mp3';
+            sound.src = './assets/sounds/speed-up.mp3';
             break;
         default:
             return;
@@ -997,7 +997,7 @@ function playSound(type) {
 }
 
 function playBackgroundMusic() {    
-    backgroundMusic = new Audio('../assets/sounds/background-music.mp3');
+    backgroundMusic = new Audio('./assets/sounds/background-music.mp3');
     backgroundMusic.loop = true;
     backgroundMusic.volume = 0.1;
     backgroundMusic.play();
