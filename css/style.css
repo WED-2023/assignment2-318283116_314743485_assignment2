@@ -435,10 +435,6 @@ p {
     border: 1px solid var(--border);
     border-top: none;
 }
-.screen {
-    background: none;
-}
-
 #game-screen.active {
     background: url('../assets/Images/background.png') no-repeat center center;
     background-size: cover;
