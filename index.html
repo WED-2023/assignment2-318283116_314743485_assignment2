@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Invaders</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header id="main-header">
+        <div class="logo">
+            <i class="fas fa-rocket rocket-icon"></i>
+            <h1 class="gradient-text">Space Invaders</h1>
+        </div>
+        <nav id="main-menu">
+            <ul>
+                <li><a href="#" id="nav-welcome"><i class="fas fa-home"></i> welcome</a></li>
+                <li><a href="#" id="nav-register"><i class="fas fa-user-plus"></i> Register</a></li>
+                <li><a href="#" id="nav-login"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                <li><a href="#" id="nav-about"><i class="fas fa-info-circle"></i> About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="content">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <div class="welcome-content">
+                <div class="welcome-logo">
+                    <img src="assets/images/logo.png" alt="Space Invaders Logo" class="custom-logo">
+                </div>
+                <h2 class="gradient-text">Welcome to Space Invaders</h2>
+                <p>Defend Earth from alien invasion!</p>
+                <div class="author-info">
+                    <p>Created by:</p>
+                    <p><strong>Sahar Eitam</strong> - 318283116</p>
+                    <p><strong>Lee Chemo</strong> - 314743485</p>
+                </div>
+                <div class="home-sites">
+                    <p>Visit our home page:</p>
+                    <p><a href="https://wed-2023.github.io/assignment2-318283116_314743485_assignment2/" target="_blank">Sahar's Home Site</a></p>
+                    <p><a href="https://sahareitam.github.io/Personal-website/" target="_blank">Sahar's Personal-WebSite</a></p>
+
+                </div>
+                <div class="welcome-buttons">
+                    <button id="register-btn" class="btn primary-btn">
+                        <i class="fas fa-user-plus"></i> Register
+                    </button>
+                    <button id="login-btn" class="btn secondary-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                </div>
+                <!-- <p class="small-text">You can use the test account: username "p" with password "testuser"</p> -->
+            </div>
+        </div>
+
+        <!-- Registration Screen -->
+        <div id="register-screen" class="screen">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Game Registration</h2>
+                </div>
+                <div class="card-content">
+                    <form id="register-form">
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" required>
+                            <small>Password must contain at least 8 characters, including numbers and letters</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm Password:</label>
+                            <input type="password" id="confirm-password" name="confirm-password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="first-name">First Name:</label>
+                            <input type="text" id="first-name" name="first-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name:</label>
+                            <input type="text" id="last-name" name="last-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Date of Birth:</label>
+                            <div class="date-inputs">
+                                <select id="birth-day" name="birth-day" required>
+                                    <option value="">Day</option>
+                                </select>
+                                <select id="birth-month" name="birth-month" required>
+                                    <option value="">Month</option>
+                                </select>
+                                <select id="birth-year" name="birth-year" required>
+                                    <option value="">Year</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="submit" class="btn primary-btn">Register</button>
+                            <button type="button" id="back-to-welcome" class="btn secondary-btn">Back</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login Screen -->
+        <div id="login-screen" class="screen">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Login to Game</h2>
+                </div>
+                <div class="card-content">
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="login-username">Username:</label>
+                            <input type="text" id="login-username" name="login-username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Password:</label>
+                            <input type="password" id="login-password" name="login-password" required>
+                        </div>
+                        <div id="login-error" class="error-message" style="display: none;"></div>
+                        <div class="form-buttons">
+                            <button type="submit" class="btn primary-btn">Login</button>
+                            <button type="button" id="back-to-welcome-from-login" class="btn secondary-btn">Back</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Configuration Screen -->
+        <div id="config-screen" class="screen">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <i class="fas fa-cog"></i> Game Settings
+                    </h2>
+                </div>
+                <div class="card-content">
+                    <form id="config-form">
+                        <div class="config-section">
+                            <h3><i class="fas fa-keyboard"></i> Controls</h3>
+                            <div class="form-group">
+                                <label for="fire-key">Firing Key:</label>
+                                <select id="fire-key" name="fire-key" required>
+                                    <option value="Space">Space Bar</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="config-section">
+                            <h3><i class="fas fa-clock"></i> Game Settings</h3>
+                            <div class="form-group">
+                                <label for="game-time">Game Duration (minutes):</label>
+                                <div class="range-container">
+                                    <input type="range" id="game-time" name="game-time" min="2" max="10" value="2" class="slider">
+                                    <span id="game-time-value">2</span>
+                                </div>
+                                <small>Minimum 2 minutes</small>
+                            </div>
+                        </div>
+                        
+                        <div class="config-section">
+                            <h3><i class="fas fa-palette"></i> Customization</h3>
+                            <div class="form-group">
+                                <label for="player-color">Your Spaceship Color:</label>
+                                <input type="color" id="player-color" name="player-color" value="#6d28d9">
+                            </div>
+                            <div class="form-group">
+                                <label for="enemy-color">Enemy Spaceship Color:</label>
+                                <input type="color" id="enemy-color" name="enemy-color" value="#ef4444">
+                            </div>
+                        </div>         
+                        <div class="form-buttons">
+                            <button type="submit" class="btn primary-btn">Start Game</button>
+                            <button type="button" id="logout-btn" class="btn secondary-btn">Logout</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen">
+            <div id="game-info">
+                <div class="info-item">
+                    <i class="fas fa-star"></i> Score: <span id="score">0</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-heart"></i> Lives: <span id="lives">3</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i> Time: <span id="time">02:00</span>
+                </div>
+            </div>
+            <canvas id="game-canvas" width="800" height="600"></canvas>
+            <div id="game-controls">
+                <button id="new-game-btn" class="btn primary-btn">
+                    <i class="fas fa-sync-alt"></i> New Game
+                </button>
+                <button id="back-to-config-btn" class="btn secondary-btn">
+                    <i class="fas fa-cog"></i> Back to Settings
+                </button>
+            </div>
+        </div>
+    </main>
+    
+    <!-- About Modal -->
+    <div id="about-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-info-circle"></i> About</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="about-content">
+                    <div class="developers">
+                        <h3></i> Developers</h3>
+                        <p>Sahar Eitam - ID: 318283116</p>
+                        <p>Lee Chemo - ID: 314743485</p>
+                    </div>
+                    
+                    <div class="implementation-details">
+                        <h3></i> Implementation Details</h3>
+                        <p>This project was developed without using any templates.</p>
+                        <p>Pure JavaScript was used without jQuery plugins.</p>
+                        <p>Font Awesome library was used for icons.</p>
+                    </div>
+                    
+                    <div class="game-instructions">
+                        <h3></i> Game Instructions</h3>
+                        <ul>
+                            <li>Use the arrow keys (←, →, ↑, ↓) to move your spaceship within the bottom 40% of the screen.</li>
+                            <li>Press your configured firing key (Space or a selected letter key) to shoot bullets upward.</li>
+                            <li>Destroy all enemy spaceships before time runs out or before losing all lives.</li>
+                            <li>Enemies move horizontally across the screen, changing direction when hitting screen edges, and shifting downward each time.</li>
+                            <li>Enemies shoot bullets randomly — avoid enemy fire!</li>
+                            <li>Scoring system based on enemy row:
+                              <ul>
+                                <li>Top row – 20 points</li>
+                                <li>Second row – 15 points</li>
+                                <li>Third row – 10 points</li>
+                                <li>Bottom row – 5 points</li>
+                              </ul>
+                            </li>
+                            <li>You have 3 lives. Each hit by an enemy bullet costs one life. When all lives are lost, the game ends.</li>
+                            <li>Enemy and bullet speed increases every 5 seconds, up to 4 times, making the game progressively harder.</li>
+                            <li>Game over conditions:
+                              <ul>
+                                <li>Victory: All enemies destroyed.</li>
+                                <li>Defeat: All lives lost.</li>
+                                <li>Time expired:
+                                  <ul>
+                                    <li>If the player scored less than 100 points — "You can do better!" message appears.</li>
+                                    <li>If the player scored 100 points or more — "Winner!" message appears.</li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </li>
+                            <li>After the game ends, a personal leaderboard showing the top scores is displayed.</li>
+                            <li>You can start a new game anytime by clicking the "New Game" button.</li>
+                          </ul>
+                        </div>
+                    
+                    <div class="extra-features">
+                        <h3></i> Additional Features Implemented</h3>
+                        <ul>
+                            <li>Custom spaceship color selection</li>
+                            <li>Game history system with leaderboard</li>
+                            <li>Sound effects and background music</li>
+                            <li>Visual effects during speed acceleration</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="challenges">
+                        <h3></i> Development Challenges</h3>
+                        <ul>
+                            <li>Implementing an accurate collision detection system between bullets and spaceships while maintaining performance and avoiding false positives.</li>
+                            <li>Managing smooth and responsive player movement while handling multiple simultaneous keyboard inputs.</li>
+                            <li>Synchronizing enemy behavior and their speed increases over time to maintain balanced difficulty.</li>
+                            <li>Designing a dynamic game configuration system (controls, colors, sounds, game time) that seamlessly integrates into gameplay.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Game Over Dialog -->
+    <div id="game-over-dialog" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="game-over-title"></h2>
+            </div>
+            <div class="modal-body">
+                <div id="game-over-stats" class="game-over-stats">
+                    <div class="score-display">
+                        <span id="final-score">0</span>
+                        <p>points</p>
+                    </div>
+                    <div class="stats-details">
+                        <p>Spaceships destroyed: <span id="enemies-destroyed">0</span></p>
+                        <p>Time elapsed: <span id="time-elapsed">00:00</span></p>
+                    </div>
+                </div>
+                <div class="game-over-buttons">
+                    <button id="play-again-btn" class="btn primary-btn">
+                        <i class="fas fa-sync-alt"></i> Play Again
+                    </button>
+                    <button id="back-to-config-from-game-over" class="btn secondary-btn">
+                        <i class="fas fa-cog"></i> Settings
+                    </button>
+                </div>
+                <div class="history-container">
+                    <h3><i class="fas fa-trophy"></i> Your Leaderboard</h3>
+                    <table id="history-table" class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Score</th>
+                                <th>Time</th>
+                                <th>Ships</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-table-body">
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="main-footer">
+        <p>Contact: Sahar Eitam & Lee Chemo Mail:Saharei@post.bgu.ac.il</p>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/config.js"></script>
+    
+</body>
+</html>
