@@ -440,7 +440,7 @@ p {
 }
 
 #game-screen.active {
-    background: url('/assignment2-318283116_314743485_assignment2/assets/images/logo.png"') no-repeat center center;
+    background: url('../assets/Images/background.png') no-repeat center center;
     background-size: cover;
 }
 
